@@ -5,7 +5,6 @@ import { useRouter } from "expo-router";
 import { styles } from "@/assets/styles/auth.styles.js";
 import { Ionicons } from "@expo/vector-icons";
 import { COLORS } from "../../constants/colors";
-import { Image } from "expo-image";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 export default function SignUpScreen() {
@@ -116,7 +115,19 @@ export default function SignUpScreen() {
       enableAutomaticScroll={true}
     >
       <View style={styles.container}>
-        <Image source={require("../../assets/images/revenue-i2.png")} style={styles.illustration} />
+        <View style={styles.futuristicHero}>
+          <View style={styles.heroGlowRing} />
+          <View style={styles.heroCore}>
+            <Text style={styles.heroCoreText}>ML</Text>
+          </View>
+          <View style={styles.heroSignalRow}>
+            <View style={[styles.heroSignal, { height: 12 }]} />
+            <View style={[styles.heroSignal, { height: 18 }]} />
+            <View style={[styles.heroSignal, { height: 24 }]} />
+            <View style={[styles.heroSignal, { height: 30 }]} />
+            <View style={[styles.heroSignal, { height: 20 }]} />
+          </View>
+        </View>
 
         <Text style={styles.title}>Create Account</Text>
 

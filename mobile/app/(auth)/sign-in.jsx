@@ -1,6 +1,6 @@
 import { useSignIn } from "@clerk/clerk-expo";
 import { Link, useRouter } from "expo-router";
-import { Text, TextInput, TouchableOpacity, View, Image } from "react-native";
+import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { useState } from "react";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { styles } from "../../assets/styles/auth.styles";
@@ -118,7 +118,19 @@ export default function Page() {
       extraScrollHeight={30}
     >
       <View style={styles.container}>
-        <Image source={require("../../assets/images/revenue-i4.png")} style={styles.illustration} />
+        <View style={styles.futuristicHero}>
+          <View style={styles.heroGlowRing} />
+          <View style={styles.heroCore}>
+            <Text style={styles.heroCoreText}>ML</Text>
+          </View>
+          <View style={styles.heroSignalRow}>
+            <View style={[styles.heroSignal, { height: 12 }]} />
+            <View style={[styles.heroSignal, { height: 18 }]} />
+            <View style={[styles.heroSignal, { height: 24 }]} />
+            <View style={[styles.heroSignal, { height: 30 }]} />
+            <View style={[styles.heroSignal, { height: 20 }]} />
+          </View>
+        </View>
         <Text style={styles.title}>Welcome Back</Text>
 
         {error ? (
