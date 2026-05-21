@@ -1,6 +1,6 @@
 const receiptsStore = new Map();
 
-const amountRegex = /(?:total|amount|grand total|balance due)?\s*[:\-]?\s*([\$€£]?\s*\d+[\.,]\d{2})/gi;
+const amountRegex = /([\$€£]?\s*-?\d+[\.,]\d{2})/g;
 const isoDateRegex = /\b(\d{4})[-\/](\d{1,2})[-\/](\d{1,2})\b/;
 const altDateRegex = /\b(\d{1,2})[-\/](\d{1,2})[-\/](\d{2,4})\b/;
 
@@ -13,15 +13,50 @@ function normalizeAmount(raw) {
 
 function extractAmount(rawText) {
   if (!rawText) return null;
-  let match;
-  let lastValid = null;
+  const lines = rawText
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
 
-  while ((match = amountRegex.exec(rawText)) !== null) {
-    const value = normalizeAmount(match[1]);
-    if (value !== null) lastValid = value;
+  const parseLastAmountInLine = (line) => {
+    const matches = [...line.matchAll(amountRegex)];
+    if (matches.length === 0) return null;
+    return normalizeAmount(matches[matches.length - 1][1]);
+  };
+
+  // 1) Strongest signal: explicit grand total / total due / balance due
+  const strongTotalLine = lines.find(
+    (line) =>
+      /(grand\s*total|total\s*due|balance\s*due)/i.test(line) &&
+      !/(subtotal|tax|tip|change)/i.test(line)
+  );
+  if (strongTotalLine) {
+    const value = parseLastAmountInLine(strongTotalLine);
+    if (value !== null) return value;
   }
 
-  return lastValid;
+  // 2) Generic total line, but exclude known non-final lines
+  const totalLine = lines.find(
+    (line) => /\btotal\b/i.test(line) && !/(subtotal|tax|tip|change)/i.test(line)
+  );
+  if (totalLine) {
+    const value = parseLastAmountInLine(totalLine);
+    if (value !== null) return value;
+  }
+
+  // 3) Fallback: choose the largest amount seen (safer than taking the last line)
+  const allValues = [];
+  for (const line of lines) {
+    if (/(change)/i.test(line)) continue;
+    const matches = [...line.matchAll(amountRegex)];
+    for (const match of matches) {
+      const value = normalizeAmount(match[1]);
+      if (value !== null) allValues.push(value);
+    }
+  }
+  if (allValues.length > 0) return Math.max(...allValues);
+
+  return null;
 }
 
 function normalizeDate(text) {

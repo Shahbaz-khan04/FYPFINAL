@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   TextInput,
   ActivityIndicator,
+  Image,
 } from "react-native";
 import { useRouter } from "expo-router";
 import { useUser } from "@clerk/clerk-expo";
@@ -14,7 +15,6 @@ import { styles } from "../../assets/styles/create.styles";
 import { COLORS } from "../../constants/colors";
 import { Ionicons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
-import * as FileSystem from "expo-file-system/legacy";
 import { DEFAULT_CURRENCY } from "../../lib/currency";
 import { useAppSettings } from "../../context/AppSettingsContext";
 
@@ -33,6 +33,7 @@ const CreateScreen = () => {
   const [receiptId, setReceiptId] = useState(null);
   const [receiptDate, setReceiptDate] = useState(null);
   const [ocrConfidence, setOcrConfidence] = useState(null);
+  const [receiptPreviewUri, setReceiptPreviewUri] = useState("");
 
   const applyOcrResult = (result) => {
     if (result?.extractedMerchant) setTitle(result.extractedMerchant);
@@ -65,7 +66,10 @@ const CreateScreen = () => {
         data = JSON.parse(raw);
       } catch {
         // If backend/proxy returns HTML (starts with '<'), avoid crashing on JSON parse.
-        throw new Error("Scan service returned invalid response. Please retry.");
+        const hint = raw?.trim?.().startsWith("<")
+          ? "Backend returned HTML (likely unavailable/waking)."
+          : "Unexpected response format.";
+        throw new Error(`Scan service invalid response (${response.status}). ${hint}`);
       }
 
       if (!response.ok) throw new Error(data?.message || "Scan failed, retry.");
@@ -91,16 +95,21 @@ const CreateScreen = () => {
 
     const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ["images"],
-      quality: 0.7,
+      base64: true,
+      quality: 0.35,
       allowsEditing: false,
     });
 
     if (result.canceled) return;
-    const uri = result.assets?.[0]?.uri;
-    if (!uri) return;
+    const asset = result.assets?.[0];
+    if (!asset) return;
 
-    const base64 = await FileSystem.readAsStringAsync(uri, { encoding: "base64" });
-    await scanReceipt({ imageBase64: `data:image/jpeg;base64,${base64}` });
+    if (!asset.base64) {
+      return Alert.alert("Scan failed", "Could not read image data. Please try another image.");
+    }
+
+    setReceiptPreviewUri(asset.uri || "");
+    await scanReceipt({ imageBase64: `data:image/jpeg;base64,${asset.base64}` });
   };
 
   const handleScanFromCamera = async () => {
@@ -112,16 +121,21 @@ const CreateScreen = () => {
 
     const result = await ImagePicker.launchCameraAsync({
       mediaTypes: ["images"],
-      quality: 0.7,
+      base64: true,
+      quality: 0.35,
       allowsEditing: false,
     });
 
     if (result.canceled) return;
-    const uri = result.assets?.[0]?.uri;
-    if (!uri) return;
+    const asset = result.assets?.[0];
+    if (!asset) return;
 
-    const base64 = await FileSystem.readAsStringAsync(uri, { encoding: "base64" });
-    await scanReceipt({ imageBase64: `data:image/jpeg;base64,${base64}` });
+    if (!asset.base64) {
+      return Alert.alert("Scan failed", "Could not read image data. Please retake photo.");
+    }
+
+    setReceiptPreviewUri(asset.uri || "");
+    await scanReceipt({ imageBase64: `data:image/jpeg;base64,${asset.base64}` });
   };
 
   const handleScanFromUrl = async () => {
@@ -129,7 +143,9 @@ const CreateScreen = () => {
       Alert.alert("Error", "Please enter a receipt image URL.");
       return;
     }
-    await scanReceipt({ imageUrl: receiptUrl.trim() });
+    const normalizedUrl = receiptUrl.trim();
+    setReceiptPreviewUri(normalizedUrl);
+    await scanReceipt({ imageUrl: normalizedUrl });
   };
 
   const handleCreate = async () => {
@@ -214,6 +230,12 @@ const CreateScreen = () => {
         <Text style={styles.sectionTitle}>
           <Ionicons name="scan-outline" size={16} color={COLORS.text} /> Scan Receipt
         </Text>
+
+        {receiptId && !!receiptPreviewUri && (
+          <View style={styles.receiptPreviewContainer}>
+            <Image source={{ uri: receiptPreviewUri }} style={styles.receiptPreviewImage} />
+          </View>
+        )}
 
         <View style={styles.scanActions}>
           <TouchableOpacity style={styles.scanButton} onPress={handleScanFromCamera} disabled={isScanning}>

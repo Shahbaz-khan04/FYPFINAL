@@ -24,7 +24,7 @@ app.use(
   })
 );
 app.use(rateLimiter);
-app.use(express.json());
+app.use(express.json({ limit: "12mb" }));
 
 // our custom simple middleware
 // app.use((req, res, next) => {

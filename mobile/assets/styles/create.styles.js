@@ -135,6 +135,20 @@ export const styles = StyleSheet.create({
     gap: 10,
     marginBottom: 12,
   },
+  receiptPreviewContainer: {
+    width: "100%",
+    height: 180,
+    borderRadius: 12,
+    overflow: "hidden",
+    borderWidth: 1,
+    borderColor: COLORS.border,
+    marginBottom: 12,
+    backgroundColor: COLORS.surface,
+  },
+  receiptPreviewImage: {
+    width: "100%",
+    height: "100%",
+  },
   scanButton: {
     flex: 1,
     borderWidth: 1,
