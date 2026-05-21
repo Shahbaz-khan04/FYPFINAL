@@ -1,4 +1,5 @@
 import { useClerk } from "@clerk/clerk-expo";
+import { useRouter } from "expo-router";
 import { Alert, TouchableOpacity } from "react-native";
 import { styles } from "../assets/styles/home.styles";
 import { Ionicons } from "@expo/vector-icons";
@@ -7,11 +8,24 @@ import { COLORS } from "../constants/colors";
 export const SignOutButton = () => {
   // Use `useClerk()` to access the `signOut()` function
   const { signOut } = useClerk();
+  const router = useRouter();
 
   const handleSignOut = async () => {
     Alert.alert("Logout", "Are you sure you want to logout?", [
       { text: "Cancel", style: "cancel" },
-      { text: "Logout", style: "destructive", onPress: signOut },
+      {
+        text: "Logout",
+        style: "destructive",
+        onPress: async () => {
+          try {
+            await signOut();
+            router.replace("/sign-in");
+          } catch (error) {
+            console.log("Logout failed", error);
+            Alert.alert("Error", "Failed to logout. Please try again.");
+          }
+        },
+      },
     ]);
   };
 

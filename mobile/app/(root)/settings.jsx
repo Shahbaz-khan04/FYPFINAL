@@ -1,4 +1,5 @@
 import { useUser, useClerk } from "@clerk/clerk-expo";
+import { useRouter } from "expo-router";
 import { Alert, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
@@ -12,6 +13,7 @@ const CURRENCIES = ["USD", "PKR", "EUR"];
 export default function SettingsScreen() {
   const { user } = useUser();
   const { signOut } = useClerk();
+  const router = useRouter();
   const { preferredCurrency, setPreferredCurrency, displayName, setDisplayName } = useAppSettings();
   const [nameInput, setNameInput] = useState(user?.firstName || displayName || "");
 
@@ -35,7 +37,19 @@ export default function SettingsScreen() {
   const onLogout = async () => {
     Alert.alert("Logout", "Are you sure you want to logout?", [
       { text: "Cancel", style: "cancel" },
-      { text: "Logout", style: "destructive", onPress: () => signOut() },
+      {
+        text: "Logout",
+        style: "destructive",
+        onPress: async () => {
+          try {
+            await signOut();
+            router.replace("/sign-in");
+          } catch (error) {
+            console.log("Logout failed", error);
+            Alert.alert("Error", "Failed to logout. Please try again.");
+          }
+        },
+      },
     ]);
   };
 
