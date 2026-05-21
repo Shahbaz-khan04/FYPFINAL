@@ -3,18 +3,28 @@ import { useRouter } from "expo-router";
 import { Alert, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
-import { styles as createStyles } from "../../assets/styles/create.styles";
 import { styles } from "../../assets/styles/settings.styles";
-import { COLORS } from "../../constants/colors";
 import { useAppSettings } from "../../context/AppSettingsContext";
 
 const CURRENCIES = ["USD", "PKR", "EUR"];
+const THEMES = [
+  { key: "dark", label: "Dark" },
+  { key: "light", label: "Light" },
+];
 
 export default function SettingsScreen() {
   const { user } = useUser();
   const { signOut } = useClerk();
   const router = useRouter();
-  const { preferredCurrency, setPreferredCurrency, displayName, setDisplayName } = useAppSettings();
+  const {
+    preferredCurrency,
+    setPreferredCurrency,
+    displayName,
+    setDisplayName,
+    themeMode,
+    setThemeMode,
+    themeColors,
+  } = useAppSettings();
   const [nameInput, setNameInput] = useState(user?.firstName || displayName || "");
 
   const onSaveDisplayName = async () => {
@@ -54,37 +64,74 @@ export default function SettingsScreen() {
   };
 
   return (
-    <View style={createStyles.container}>
-      <View style={createStyles.card}>
-        <Text style={createStyles.sectionTitle}>Settings</Text>
+    <View style={[styles.container, { backgroundColor: themeColors.background }]}>
+      <View style={[styles.card, { backgroundColor: themeColors.card, borderColor: themeColors.border }]}>
+        <Text style={[styles.screenTitle, { color: themeColors.text }]}>Settings</Text>
 
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Display Name</Text>
-          <View style={createStyles.inputContainer}>
-            <Ionicons name="person-outline" size={22} color={COLORS.textLight} style={createStyles.inputIcon} />
+          <Text style={[styles.sectionTitle, { color: themeColors.textLight }]}>Display Name</Text>
+          <View style={[styles.inputContainer, { borderColor: themeColors.border, backgroundColor: themeColors.surface }]}>
+            <Ionicons name="person-outline" size={22} color={themeColors.textLight} style={styles.inputIcon} />
             <TextInput
-              style={createStyles.input}
+              style={[styles.input, { color: themeColors.text }]}
               value={nameInput}
               onChangeText={setNameInput}
               placeholder={user?.firstName || "First name"}
-              placeholderTextColor={COLORS.textLight}
+              placeholderTextColor={themeColors.textLight}
             />
           </View>
-          <TouchableOpacity style={styles.saveButton} onPress={onSaveDisplayName}>
-            <Text style={styles.saveButtonText}>Save First Name</Text>
+          <TouchableOpacity style={[styles.saveButton, { backgroundColor: themeColors.primary }]} onPress={onSaveDisplayName}>
+            <Text style={[styles.saveButtonText, { color: themeColors.white }]}>Save First Name</Text>
           </TouchableOpacity>
         </View>
 
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Preferred Currency</Text>
+          <Text style={[styles.sectionTitle, { color: themeColors.textLight }]}>Theme</Text>
+          <View style={styles.chipsRow}>
+            {THEMES.map((item) => (
+              <TouchableOpacity
+                key={item.key}
+                style={[
+                  styles.chip,
+                  { borderColor: themeColors.border, backgroundColor: themeColors.surface },
+                  themeMode === item.key && { backgroundColor: themeColors.primary, borderColor: themeColors.primary },
+                ]}
+                onPress={() => setThemeMode(item.key)}
+              >
+                <Text
+                  style={[
+                    styles.chipText,
+                    { color: themeColors.text },
+                    themeMode === item.key && { color: themeColors.white },
+                  ]}
+                >
+                  {item.label}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+        </View>
+
+        <View style={styles.section}>
+          <Text style={[styles.sectionTitle, { color: themeColors.textLight }]}>Preferred Currency</Text>
           <View style={styles.chipsRow}>
             {CURRENCIES.map((code) => (
               <TouchableOpacity
                 key={code}
-                style={[styles.chip, preferredCurrency === code && styles.chipActive]}
+                style={[
+                  styles.chip,
+                  { borderColor: themeColors.border, backgroundColor: themeColors.surface },
+                  preferredCurrency === code && { backgroundColor: themeColors.primary, borderColor: themeColors.primary },
+                ]}
                 onPress={() => setPreferredCurrency(code)}
               >
-                <Text style={[styles.chipText, preferredCurrency === code && styles.chipTextActive]}>
+                <Text
+                  style={[
+                    styles.chipText,
+                    { color: themeColors.text },
+                    preferredCurrency === code && { color: themeColors.white },
+                  ]}
+                >
                   {code}
                 </Text>
               </TouchableOpacity>
@@ -92,8 +139,8 @@ export default function SettingsScreen() {
           </View>
         </View>
 
-        <TouchableOpacity style={[styles.saveButton, { backgroundColor: COLORS.expense }]} onPress={onLogout}>
-          <Text style={styles.saveButtonText}>Logout</Text>
+        <TouchableOpacity style={[styles.saveButton, { backgroundColor: themeColors.expense }]} onPress={onLogout}>
+          <Text style={[styles.saveButtonText, { color: themeColors.white }]}>Logout</Text>
         </TouchableOpacity>
       </View>
     </View>

@@ -3,9 +3,20 @@ import SafeScreen from "@/components/SafeScreen";
 import { ClerkProvider } from "@clerk/clerk-expo";
 import { tokenCache } from "@clerk/clerk-expo/token-cache";
 import { StatusBar } from "expo-status-bar";
-import { AppSettingsProvider } from "../context/AppSettingsContext";
+import { AppSettingsProvider, useAppSettings } from "../context/AppSettingsContext";
 import { useEffect, useState } from "react";
 import LaunchSplash from "../components/LaunchSplash";
+
+function AppShell({ showSplash }) {
+  const { themeMode } = useAppSettings();
+
+  return (
+    <>
+      <SafeScreen>{showSplash ? <LaunchSplash /> : <Slot />}</SafeScreen>
+      <StatusBar style={showSplash || themeMode === "dark" ? "light" : "dark"} />
+    </>
+  );
+}
 
 export default function RootLayout() {
   const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
@@ -19,10 +30,7 @@ export default function RootLayout() {
   return (
     <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
       <AppSettingsProvider>
-        <SafeScreen>
-          {showSplash ? <LaunchSplash /> : <Slot />}
-        </SafeScreen>
-        <StatusBar style={showSplash ? "light" : "dark"} />
+        <AppShell showSplash={showSplash} />
       </AppSettingsProvider>
     </ClerkProvider>
   );

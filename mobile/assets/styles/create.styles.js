@@ -47,6 +47,12 @@ export const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 3,
   },
+  formScroll: {
+    flex: 1,
+  },
+  formScrollContent: {
+    paddingBottom: 28,
+  },
   typeSelector: {
     flexDirection: "row",
     marginBottom: 20,

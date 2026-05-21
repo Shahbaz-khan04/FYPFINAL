@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import * as SecureStore from "expo-secure-store";
+import { getThemeColors } from "../constants/themes";
 
 const SETTINGS_KEY = "wallet_app_settings_v1";
 
@@ -18,6 +19,7 @@ const AppSettingsContext = createContext(null);
 export const AppSettingsProvider = ({ children }) => {
   const [preferredCurrency, setPreferredCurrency] = useState("USD");
   const [displayName, setDisplayName] = useState("");
+  const [themeMode, setThemeMode] = useState("dark");
   const [categories, setCategories] = useState(DEFAULT_CATEGORIES);
   const [loaded, setLoaded] = useState(false);
 
@@ -29,6 +31,9 @@ export const AppSettingsProvider = ({ children }) => {
           const parsed = JSON.parse(raw);
           if (parsed.preferredCurrency) setPreferredCurrency(parsed.preferredCurrency);
           if (typeof parsed.displayName === "string") setDisplayName(parsed.displayName);
+          if (parsed.themeMode === "light" || parsed.themeMode === "dark") {
+            setThemeMode(parsed.themeMode);
+          }
           if (Array.isArray(parsed.categories) && parsed.categories.length) {
             setCategories(parsed.categories);
           }
@@ -43,11 +48,11 @@ export const AppSettingsProvider = ({ children }) => {
 
   useEffect(() => {
     if (!loaded) return;
-    const payload = JSON.stringify({ preferredCurrency, displayName, categories });
+    const payload = JSON.stringify({ preferredCurrency, displayName, themeMode, categories });
     SecureStore.setItemAsync(SETTINGS_KEY, payload).catch((error) =>
       console.log("Failed to save settings", error)
     );
-  }, [preferredCurrency, displayName, categories, loaded]);
+  }, [preferredCurrency, displayName, themeMode, categories, loaded]);
 
   const addCategory = (name) => {
     const trimmed = name.trim();
@@ -70,17 +75,22 @@ export const AppSettingsProvider = ({ children }) => {
     return { ok: true };
   };
 
+  const themeColors = getThemeColors(themeMode);
+
   const value = useMemo(
     () => ({
       preferredCurrency,
       setPreferredCurrency,
       displayName,
       setDisplayName,
+      themeMode,
+      setThemeMode,
+      themeColors,
       categories,
       addCategory,
       deleteCategory,
     }),
-    [preferredCurrency, displayName, categories]
+    [preferredCurrency, displayName, themeMode, themeColors, categories]
   );
 
   return <AppSettingsContext.Provider value={value}>{children}</AppSettingsContext.Provider>;

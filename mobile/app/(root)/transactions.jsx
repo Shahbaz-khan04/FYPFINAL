@@ -52,9 +52,17 @@ export default function TransactionsScreen() {
     }
 
     if (sortBy === "date_desc") {
-      result.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+      result.sort((a, b) => {
+        const dateDiff = new Date(b.created_at) - new Date(a.created_at);
+        if (dateDiff !== 0) return dateDiff;
+        return Number(b.id || 0) - Number(a.id || 0);
+      });
     } else if (sortBy === "date_asc") {
-      result.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
+      result.sort((a, b) => {
+        const dateDiff = new Date(a.created_at) - new Date(b.created_at);
+        if (dateDiff !== 0) return dateDiff;
+        return Number(a.id || 0) - Number(b.id || 0);
+      });
     } else if (sortBy === "amount_desc") {
       result.sort((a, b) => Math.abs(Number(b.amount)) - Math.abs(Number(a.amount)));
     } else if (sortBy === "amount_asc") {

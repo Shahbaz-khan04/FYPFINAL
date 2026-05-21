@@ -143,7 +143,9 @@ export async function getTransactionsByUserId(req, res) {
     const targetCurrency = req.query.currency?.toUpperCase();
 
     const transactions = await sql`
-        SELECT * FROM transactions WHERE user_id = ${userId} ORDER BY created_at DESC
+        SELECT * FROM transactions
+        WHERE user_id = ${userId}
+        ORDER BY created_at DESC, id DESC
       `;
 
     if (!targetCurrency) {

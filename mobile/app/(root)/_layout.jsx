@@ -1,10 +1,9 @@
 import { useUser } from "@clerk/clerk-expo";
 import { Redirect, Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import { COLORS } from "../../constants/colors";
 import { API_URL } from "../../constants/api";
 import { useAppSettings } from "../../context/AppSettingsContext";
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import {
   ActivityIndicator,
   Animated,
@@ -20,7 +19,8 @@ import {
 
 export default function Layout() {
   const { isSignedIn, isLoaded, user } = useUser();
-  const { preferredCurrency } = useAppSettings();
+  const { preferredCurrency, themeColors } = useAppSettings();
+  const styles = useMemo(() => createStyles(themeColors), [themeColors]);
   const [showAiModal, setShowAiModal] = useState(false);
   const [aiLoading, setAiLoading] = useState(false);
   const [aiResponse, setAiResponse] = useState(null);
@@ -80,11 +80,11 @@ export default function Layout() {
       <Tabs
         screenOptions={{
           headerShown: false,
-          tabBarActiveTintColor: COLORS.primary,
-          tabBarInactiveTintColor: COLORS.textLight,
+          tabBarActiveTintColor: themeColors.primary,
+          tabBarInactiveTintColor: themeColors.textLight,
           tabBarStyle: {
-            backgroundColor: COLORS.surfaceAlt,
-            borderTopColor: COLORS.border,
+            backgroundColor: themeColors.surfaceAlt,
+            borderTopColor: themeColors.border,
             height: 64,
           },
           tabBarLabelStyle: {
@@ -117,7 +117,7 @@ export default function Layout() {
             tabBarButton: () => (
               <TouchableOpacity style={styles.aiTabBtn} onPress={openAiModal} activeOpacity={0.85}>
                 <View style={styles.aiTabGlow}>
-                  <Ionicons name="sparkles" size={22} color={COLORS.background} />
+                  <Ionicons name="sparkles" size={22} color={themeColors.background} />
                 </View>
               </TouchableOpacity>
             ),
@@ -158,13 +158,13 @@ export default function Layout() {
             <View style={styles.modalHeader}>
               <Text style={styles.modalTitle}>AI Insights of this Month</Text>
               <TouchableOpacity onPress={closeAiModal} style={styles.closeBtn}>
-                <Ionicons name="close" size={18} color={COLORS.text} />
+                <Ionicons name="close" size={18} color={themeColors.text} />
               </TouchableOpacity>
             </View>
 
             {aiLoading ? (
               <View style={styles.loadingWrap}>
-                <ActivityIndicator size="small" color={COLORS.primary} />
+                <ActivityIndicator size="small" color={themeColors.primary} />
                 <Text style={styles.loadingText}>Loading...</Text>
               </View>
             ) : (
@@ -203,7 +203,8 @@ export default function Layout() {
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (themeColors) =>
+  StyleSheet.create({
   aiTabBtn: {
     justifyContent: "center",
     alignItems: "center",
@@ -213,10 +214,10 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 25,
-    backgroundColor: COLORS.primary,
+    backgroundColor: themeColors.primary,
     justifyContent: "center",
     alignItems: "center",
-    shadowColor: COLORS.primary,
+    shadowColor: themeColors.primary,
     shadowOpacity: 0.55,
     shadowRadius: 10,
     shadowOffset: { width: 0, height: 0 },
@@ -229,10 +230,10 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   modalCard: {
-    backgroundColor: COLORS.card,
+    backgroundColor: themeColors.card,
     borderRadius: 18,
     borderWidth: 1,
-    borderColor: COLORS.border,
+    borderColor: themeColors.border,
     padding: 14,
     maxHeight: "75%",
   },
@@ -243,7 +244,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   modalTitle: {
-    color: COLORS.primary,
+    color: themeColors.primary,
     fontWeight: "700",
     fontSize: 16,
   },
@@ -253,7 +254,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: COLORS.surface,
+    backgroundColor: themeColors.surface,
   },
   loadingWrap: {
     flexDirection: "row",
@@ -262,38 +263,38 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
   },
   loadingText: {
-    color: COLORS.textLight,
+    color: themeColors.textLight,
   },
   jsonBox: {
-    backgroundColor: COLORS.surface,
+    backgroundColor: themeColors.surface,
     borderRadius: 12,
     padding: 12,
   },
   jsonText: {
-    color: COLORS.text,
+    color: themeColors.text,
     fontSize: 12,
     lineHeight: 18,
   },
   aiSummary: {
-    color: COLORS.primary,
+    color: themeColors.primary,
     fontSize: 14,
     fontWeight: "700",
     marginBottom: 8,
   },
   aiBullet: {
-    color: COLORS.text,
+    color: themeColors.text,
     fontSize: 12,
     lineHeight: 18,
     marginBottom: 3,
   },
   aiTip: {
-    color: COLORS.textLight,
+    color: themeColors.textLight,
     fontSize: 12,
     marginTop: 6,
   },
   aiRisk: {
     marginTop: 10,
-    color: COLORS.white,
+    color: themeColors.white,
     fontSize: 12,
     fontWeight: "700",
   },

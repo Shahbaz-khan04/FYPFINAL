@@ -2,6 +2,20 @@ import { StyleSheet } from "react-native";
 import { COLORS } from "../../constants/colors";
 
 export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  card: {
+    margin: 16,
+    borderRadius: 16,
+    padding: 16,
+    borderWidth: 1,
+  },
+  screenTitle: {
+    fontSize: 18,
+    fontWeight: "700",
+    marginBottom: 14,
+  },
   section: {
     marginBottom: 16,
   },
@@ -46,9 +60,24 @@ export const styles = StyleSheet.create({
     marginBottom: 12,
   },
   saveButtonText: {
-    color: COLORS.white,
     fontWeight: "600",
     fontSize: 15,
+  },
+  inputContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    borderWidth: 1,
+    borderRadius: 12,
+    padding: 4,
+    marginBottom: 10,
+  },
+  inputIcon: {
+    marginHorizontal: 12,
+  },
+  input: {
+    flex: 1,
+    padding: 12,
+    fontSize: 16,
   },
   listContainer: {
     marginTop: 8,

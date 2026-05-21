@@ -6,6 +6,7 @@ import {
   TextInput,
   ActivityIndicator,
   Image,
+  ScrollView,
 } from "react-native";
 import { useRouter } from "expo-router";
 import { useUser } from "@clerk/clerk-expo";
@@ -199,7 +200,7 @@ const CreateScreen = () => {
       }
 
       Alert.alert("Success", "Transaction created successfully");
-      router.back();
+      router.replace("/transactions");
     } catch (error) {
       Alert.alert("Error", error.message || "Failed to create transaction");
       console.error("Error creating transaction:", error);
@@ -226,6 +227,11 @@ const CreateScreen = () => {
         </TouchableOpacity>
       </View>
 
+      <ScrollView
+        style={styles.formScroll}
+        contentContainerStyle={styles.formScrollContent}
+        showsVerticalScrollIndicator={false}
+      >
       <View style={styles.card}>
         <Text style={styles.sectionTitle}>
           <Ionicons name="scan-outline" size={16} color={COLORS.text} /> Scan Receipt
@@ -389,6 +395,7 @@ const CreateScreen = () => {
           <ActivityIndicator size="large" color={COLORS.primary} />
         </View>
       )}
+      </ScrollView>
     </View>
   );
 };
