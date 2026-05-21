@@ -14,7 +14,7 @@ import { styles } from "../../assets/styles/create.styles";
 import { COLORS } from "../../constants/colors";
 import { Ionicons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
-import * as FileSystem from "expo-file-system";
+import * as FileSystem from "expo-file-system/legacy";
 import { DEFAULT_CURRENCY } from "../../lib/currency";
 import { useAppSettings } from "../../context/AppSettingsContext";
 
@@ -59,7 +59,15 @@ const CreateScreen = () => {
         body: JSON.stringify({ imageBase64, imageUrl }),
       });
 
-      const data = await response.json();
+      const raw = await response.text();
+      let data = null;
+      try {
+        data = JSON.parse(raw);
+      } catch {
+        // If backend/proxy returns HTML (starts with '<'), avoid crashing on JSON parse.
+        throw new Error("Scan service returned invalid response. Please retry.");
+      }
+
       if (!response.ok) throw new Error(data?.message || "Scan failed, retry.");
 
       applyOcrResult(data);
@@ -82,7 +90,7 @@ const CreateScreen = () => {
     }
 
     const result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      mediaTypes: ["images"],
       quality: 0.7,
       allowsEditing: false,
     });
@@ -103,7 +111,7 @@ const CreateScreen = () => {
     }
 
     const result = await ImagePicker.launchCameraAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      mediaTypes: ["images"],
       quality: 0.7,
       allowsEditing: false,
     });

@@ -54,24 +54,27 @@ function extractMerchant(rawText) {
   return firstLine || "";
 }
 
-export async function scanReceipt({ imageBase64, imageUrl }) {
+async function parseJsonSafe(response) {
+  const raw = await response.text();
+  try {
+    return { data: JSON.parse(raw), raw };
+  } catch {
+    return { data: null, raw };
+  }
+}
+
+async function scanWithOcrSpace({ imageBase64, imageUrl }) {
   const apiKey = process.env.OCR_SPACE_API_KEY;
   const apiUrl = process.env.OCR_SPACE_API_URL;
-
-  if (!apiKey || !apiUrl) {
-    throw new Error("OCR service is not configured");
-  }
+  if (!apiKey || !apiUrl) return null;
 
   const params = new URLSearchParams();
   params.append("apikey", apiKey);
   params.append("language", "eng");
   params.append("isOverlayRequired", "false");
 
-  if (imageBase64) {
-    params.append("base64Image", imageBase64);
-  } else if (imageUrl) {
-    params.append("url", imageUrl);
-  }
+  if (imageBase64) params.append("base64Image", imageBase64);
+  else if (imageUrl) params.append("url", imageUrl);
 
   const response = await fetch(apiUrl, {
     method: "POST",
@@ -79,20 +82,116 @@ export async function scanReceipt({ imageBase64, imageUrl }) {
     body: params.toString(),
   });
 
-  const payload = await response.json();
+  const { data: payload } = await parseJsonSafe(response);
+  if (!payload) return null;
+
   const parsedText = payload?.ParsedResults?.[0]?.ParsedText || "";
+  if (!response.ok || !parsedText) return null;
 
-  if (!response.ok || !parsedText) {
-    throw new Error("Scan failed, retry.");
-  }
-
-  const result = {
-    id: `receipt_${Date.now()}`,
+  return {
     extractedMerchant: extractMerchant(parsedText),
     extractedAmount: extractAmount(parsedText),
     extractedDate: normalizeDate(parsedText),
     rawText: parsedText,
     confidence: payload?.OCRExitCode === 1 ? 0.87 : 0.55,
+    provider: "ocr-space",
+  };
+}
+
+async function scanWithOpenAI({ imageBase64, imageUrl }) {
+  const apiKey = process.env.OPENAI_API_KEY;
+  const model = process.env.OPENAI_MODEL || "gpt-4.1-mini";
+  if (!apiKey) return null;
+
+  const imageInput = imageBase64
+    ? [{ type: "input_image", image_url: imageBase64 }]
+    : imageUrl
+      ? [{ type: "input_image", image_url: imageUrl }]
+      : [];
+
+  if (imageInput.length === 0) return null;
+
+  const prompt = `Extract receipt fields and OCR text. Return strict JSON with:
+{
+  "extractedMerchant": string|null,
+  "extractedAmount": number|null,
+  "extractedDate": "YYYY-MM-DD"|null,
+  "rawText": string,
+  "confidence": number
+}
+Use null when unsure.`;
+
+  const response = await fetch("https://api.openai.com/v1/responses", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      model,
+      input: [
+        {
+          role: "user",
+          content: [{ type: "input_text", text: prompt }, ...imageInput],
+        },
+      ],
+      max_output_tokens: 500,
+      temperature: 0.1,
+    }),
+  });
+
+  const { data: payload } = await parseJsonSafe(response);
+  if (!response.ok || !payload) return null;
+
+  const text = payload?.output_text || payload?.output?.[0]?.content?.[0]?.text || "";
+  if (!text) return null;
+
+  let parsed = null;
+  try {
+    parsed = JSON.parse(text);
+  } catch {
+    const match = text.match(/\{[\s\S]*\}/);
+    if (match) {
+      try {
+        parsed = JSON.parse(match[0]);
+      } catch {
+        parsed = null;
+      }
+    }
+  }
+
+  if (!parsed) return null;
+
+  return {
+    extractedMerchant: parsed.extractedMerchant || null,
+    extractedAmount:
+      typeof parsed.extractedAmount === "number"
+        ? parsed.extractedAmount
+        : normalizeAmount(String(parsed.extractedAmount || "")),
+    extractedDate: parsed.extractedDate || null,
+    rawText: parsed.rawText || "",
+    confidence: Number.isFinite(parsed.confidence) ? parsed.confidence : 0.75,
+    provider: "openai",
+  };
+}
+
+export async function scanReceipt({ imageBase64, imageUrl }) {
+  const ocrSpaceResult = await scanWithOcrSpace({ imageBase64, imageUrl });
+  const aiResult = ocrSpaceResult ? null : await scanWithOpenAI({ imageBase64, imageUrl });
+  const chosen = ocrSpaceResult || aiResult;
+
+  if (!chosen) {
+    throw new Error("Scan failed, retry.");
+  }
+
+  const result = {
+    id: `receipt_${Date.now()}`,
+    extractedMerchant: chosen.extractedMerchant,
+    extractedAmount: chosen.extractedAmount,
+    extractedDate: chosen.extractedDate,
+    rawText: chosen.rawText,
+    confidence: chosen.confidence,
+    provider: chosen.provider,
   };
 
   receiptsStore.set(result.id, result);
