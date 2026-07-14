@@ -3,6 +3,7 @@ import { Redirect, Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { API_URL } from "../../constants/api";
 import { useAppSettings } from "../../context/AppSettingsContext";
+import { fetchJson } from "../../lib/api";
 import { useMemo, useRef, useState } from "react";
 import {
   ActivityIndicator,
@@ -55,14 +56,13 @@ export default function Layout() {
     ]).start();
 
     try {
-      const response = await fetch(
+      const data = await fetchJson(
         `${API_URL}/ai/monthly-insights/${user.id}?month=${encodeURIComponent(month)}&currency=${encodeURIComponent(preferredCurrency)}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
         }
       );
-      const data = await response.json();
       setAiResponse(data);
     } catch (error) {
       setAiResponse({ error: error.message || "Failed to fetch AI response" });

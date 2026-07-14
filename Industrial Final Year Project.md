@@ -4,6 +4,9 @@
 
 ## **![][image1]**
 
+Figure 1 - University logo displayed on the title page of the Industrial Final Year Project report.
+
+
 **Shahbaz Khan(FL-21574)**
 
 **Shahrukh(FL-21466)**
@@ -40,6 +43,9 @@ It is certified that a system report titled **"Personal Finance Analyzer and Bud
 | Dr. Naveed Ahmed Head Project Committee | Signature:\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ |
 | Dr. Zohaib Ahmed Supervisor | Signature:\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ |
 
+Table 1 - Committee presents the final approval committee members and their signature fields for the project report.
+
+
 # **DECLARATION**
 
 We hereby commit to creating this group on our own initiative for our senior project. It is entirely our responsibility to finish this project on schedule. Neither the supervisor nor the university will be held accountable for subpar work in the event of failure or underperformance.
@@ -49,6 +55,9 @@ We hereby commit to creating this group on our own initiative for our senior pro
 | 1\. Shahbaz Khan | ![][image2] |
 | 2\. Shahrukh |  |
 | 3\. Hamza Tauqir |  |
+
+Table 2 - Declaration presents the group members and their signature section for the project declaration.
+
 
 # **PLAGIARISM CERTIFICATE**
 
@@ -99,6 +108,9 @@ The final solution provides a comprehensive, intelligent, and user-friendly fina
 | Shahbaz Khan (FL-21574) | Industry Liaison Exec |  | **Sir Zohaib Ahmed** |  |
 | Shahrukh (FL-21466) | HOD SE |  | **Dr. Sumaira Nazir** |  |
 | Hamza Tauqir (FL-21469) | Dean FEC |  | **Dr. Nauman Malik** |  |
+
+Table 3 - Project Charter presents the project title, scope, objectives, milestones, risks, and approvals in a summarized form.
+
 
 # 
 
@@ -392,6 +404,9 @@ Existing solutions excel in specific areas but lack comprehensive integration. M
 | International Users | Poor | Poor | Good | **Excellent** |
 | Pricing Model | Free (Ads) | $14/month | $5-18/month | **Freemium** |
 
+Table 4 - Comparison of Existing Systems presents a feature-wise comparison between existing applications and the proposed system.
+
+
 # **2.3 Features Analysis**
 
 ## **2.3.1 Registered User Features**
@@ -549,6 +564,9 @@ The business objective of the Personal Finance Analyzer and Budgeting Assistant 
 | BR-42  | The system should allow administrators to create, update, and delete FAQ and Help Center content. |
 | BR-43   | The system should allow administrators to view and respond to user-submitted queries from the Help Center. |
 
+Table 5 - Business Requirements presents the major business-level requirements defined for the proposed system.
+
+
 ## **2.4.3 Process Flow Diagrams**
 
 ### **2.4.3.1 Registered User Features**
@@ -557,78 +575,178 @@ The business objective of the Personal Finance Analyzer and Budgeting Assistant 
 
 2.4.3.1.1.1 Sign up with  form (Name, Email, Phone, Password)![][image3]
 
+Figure 2 - Sign up with form (Name, Email, Phone, Password) illustrates the user registration process and account creation workflow of the system.
+
+
 2.4.3.1.1.2 Sign up with Google/Apple ID![][image4]
+
+Figure 3 - Sign up with Google/Apple ID illustrates the user registration process and account creation workflow of the system.
+
 
 2.4.3.1.1.5 Forgot/Reset password![][image5]
 
+Figure 4 - Forgot/Reset password illustrates the password recovery workflow used to restore user account access.
+
+
 2.4.3.1.1.6 Manage personal profile (view, update, delete)![][image6]
+
+Figure 5 - Manage personal profile (view, update, delete) illustrates the process for viewing and updating personal profile information.
+
 
 2.4.3.1.1.7 Account settings (notifications, preferences, theme)![][image7]
 
+Figure 6 - Account settings (notifications, preferences, theme) illustrates how users configure preferences and application settings.
+
+
 2.4.3.1.1.8 Log out![][image8]
+
+Figure 7 - Log out illustrates the secure logout process of the application.
+
 
 **2.4.3.1.2 Expense & Income Tracking**
 
 2.4.3.1.2.1 Add manual transactions (expense/income)![][image9]
 
+Figure 8 - Add manual transactions (expense/income) illustrates the workflow for recording income and expense entries in the system.
+
+
 2.4.3.1.2.2 Automatic categorization of expenses using AI/ML ![][image10]
+
+Figure 9 - Automatic categorization of expenses using AI/ML illustrates how the system classifies financial transactions using intelligent processing.
+
 
 2.4.3.1.2.3 Edit or delete transactions ![][image11]
 
+Figure 10 - Edit or delete transactions illustrates the workflow for modifying or removing recorded transactions.
+
+
 2.4.3.1.2.4 Upload receipts via camera (OCR scanning) ![][image12]
+
+Figure 11 - Upload receipts via camera (OCR scanning) illustrates the receipt scanning workflow used to extract transaction details.
+
 
 2.4.3.1.2.5 View real-time transaction history ![][image13]
 
+Figure 12 - View real-time transaction history illustrates how users review previously recorded financial transactions.
+
+
 2.4.3.1.2.6 Split expenses (manual or smart suggestions) ![][image14]
+
+Figure 13 - Split expenses (manual or smart suggestions) illustrates how the system supports dividing expenses across multiple entries or parties.
+
 
 2.4.3.1.2.7 Set recurring transactions (rent, bills, subscriptions) ![][image15]
 
+Figure 14 - Set recurring transactions (rent, bills, subscriptions) illustrates the setup and management of repeated financial transactions.
+
+
 2.4.3.1.2.8 Tag transactions for custom grouping (e.g., “Project A”, “Trip 2025”) ![][image16]
+
+Figure 15 - Tag transactions for custom grouping (e.g., “Project A”, “Trip 2025”) illustrates the use of custom tags for organizing and grouping transactions.
+
 
 **2.4.3.1.3 Budgeting & Goals**
 
 2.4.3.1.3.1 Create budgets using different methodologies ![][image17]
 
+Figure 16 - Create budgets using different methodologies illustrates the process of creating user budgets using supported budgeting methods.
+
+
 2.4.3.1.3.2 Adjust budgets dynamically with income changes ![][image18]
+
+Figure 17 - Adjust budgets dynamically with income changes illustrates how the system adapts budget values when income changes over time.
+
 
 2.4.3.1.3.3 Set financial goals ![][image19]
 
+Figure 18 - Set financial goals illustrates how the system supports setting and monitoring user financial goals.
+
+
 2.4.3.1.3.4 Track progress toward goals with milestone indicators ![][image20]
+
+Figure 19 - Track progress toward goals with milestone indicators illustrates how users monitor goal progress through milestones and completion indicators.
+
 
 2.4.3.1.3.5 Receive intelligent recommendations for budget optimization ![][image21]
 
+Figure 20 - Receive intelligent recommendations for budget optimization illustrates how intelligent recommendations are provided to improve budgeting decisions.
+
+
 2.4.3.1.3.6 Budget variance analysis ![][image22]
 
+Figure 21 - Budget variance analysis illustrates the comparison between planned budgets and actual spending outcomes.
+
+
 2.4.3.1.3.7 Goal prioritization ![][image23]  
+
+Figure 22 - Goal prioritization illustrates how the system identifies which financial goals should be prioritized first.
+
+
 **2.4.3.1.4 Analytics & Reports**
 
 2.4.3.1.4.1 Cash flow forecasting ![][image24]
 
+Figure 23 - Cash flow forecasting illustrates how the system predicts future financial inflows and outflows.
+
+
 2.4.3.1.4.2 Spending anomaly detection and alerts ![][image25]
+
+Figure 24 - Spending anomaly detection and alerts illustrates how unusual spending behavior is detected and highlighted by the system.
+
 
 2.4.3.1.4.3 Profit and loss statement generation ![][image26]
 
+Figure 25 - Profit and loss statement generation illustrates the generation of a financial profit and loss summary.
+
+
 2.4.3.1.4.4 Custom financial reports and charts ![][image27]
+
+Figure 26 - Custom financial reports and charts illustrates the reporting and visualization features available to the user.
+
 
 2.4.3.1.4.5 Category-wise spending breakdown ![][image28]
 
+Figure 27 - Category-wise spending breakdown illustrates spending distribution across different transaction categories.
+
+
 2.4.3.1.4.6 Personalized financial advice based on user patterns ![][image29]
+
+Figure 28 - Personalized financial advice based on user patterns illustrates the generation of intelligent recommendations based on user financial data.
+
 
 **2.4.3.1.5 Multi-Currency Support**
 
 2.4.3.1.5.1 Add transactions in different currencies ![][image30]
 
+Figure 29 - Add transactions in different currencies illustrates the handling of multi-currency transactions and converted financial values.
+
+
 2.4.3.1.5.2 Real-time exchange rate conversion  ![][image31]
 
+Figure 30 - Real-time exchange rate conversion illustrates the process or interface represented in this section of the report.
+
+
 2.4.3.1.5.3 View consolidated reports across multiple currencies ![][image32]
+
+Figure 31 - View consolidated reports across multiple currencies illustrates the handling of multi-currency transactions and converted financial values.
+
 
 **2.4.3.1.6 Help Center Interaction**
 
 2.4.3.1.6.1 Browse FAQs and support articles ![][image33]
 
+Figure 32 - Browse FAQs and support articles illustrates the help and support interaction process of the system.
+
+
 2.4.3.1.6.2 Post a question to the Help Center ![][image34]
 
+Figure 33 - Post a question to the Help Center illustrates the help and support interaction process of the system.
+
+
 2.4.3.1.6.3 View responses to submitted questions ![][image35]
+
+Figure 34 - View responses to submitted questions illustrates the process or interface represented in this section of the report.
+
 
 ### **2.4.3.2 Offline User Features**
 
@@ -636,37 +754,73 @@ The business objective of the Personal Finance Analyzer and Budgeting Assistant 
 
 2.4.3.2.1.1 Record income/expense without internet ![][image36]
 
+Figure 35 - Record income/expense without internet illustrates the process or interface represented in this section of the report.
+
+
 2.4.3.2.1.2 Categorize transactions (basic; AI-categorization will sync later) ![][image37]
 
+Figure 36 - Categorize transactions (basic; AI-categorization will sync later) illustrates the offline usage and synchronization workflow of the application.
+
+
 2.4.3.2.1.3 Attach receipts ![][image38]
+
+Figure 37 - Attach receipts illustrates the process or interface represented in this section of the report.
+
 
 **2.4.3.2.2 View Saved Data Offline**
 
 2.4.3.2.2.1 Access previously synced transactions, budgets, and reports ![][image39]
 
+Figure 38 - Access previously synced transactions, budgets, and reports illustrates the offline usage and synchronization workflow of the application.
+
+
 2.4.3.2.2.2 Check financial goals and progress ![][image40]
+
+Figure 39 - Check financial goals and progress illustrates the process or interface represented in this section of the report.
+
 
 **2.4.3.2.3 Modify Data Offline**
 
 2.4.3.2.3.1 Edit or delete offline transactions ![][image41]
 
+Figure 40 - Edit or delete offline transactions illustrates the offline usage and synchronization workflow of the application.
+
+
 2.4.3.2.3.2 Update goals or budgets ![][image42]
+
+Figure 41 - Update goals or budgets illustrates the process or interface represented in this section of the report.
+
 
 **2.4.3.2.4 Sync on Reconnect**
 
 2.4.3.2.4.1 Automatic background sync when internet is restored ![][image43]
 
+Figure 42 - Automatic background sync when internet is restored illustrates the offline usage and synchronization workflow of the application.
+
+
 ### **2.4.3.3 Admin Features**
 
 2.4.3.3.1 Admin Login (secure access) ![][image44]
 
+Figure 43 - Admin Login (secure access) illustrates the administrative control process for support-related tasks.
+
+
 2.4.3.3.2 Manage FAQs and Help Center content (add, update, delete) ![][image45]
 
+Figure 44 - Manage FAQs and Help Center content (add, update, delete) illustrates the help and support interaction process of the system.
+
+
 2.4.3.3.3 Respond to user-submitted questions in the Help Center. ![][image46]
+
+Figure 45 - Respond to user-submitted questions in the Help Center. illustrates the help and support interaction process of the system.
+
 
 ## **2.4.4 DFD (Data Flow Diagram)**
 
 ![][image47]
+
+Figure 46 - Data Flow Diagram illustrates the movement of data between users, processes, and system components.
+
 
 ## **2.4.5 Design Constraint**
 
@@ -698,6 +852,9 @@ The business objective of the Personal Finance Analyzer and Budgeting Assistant 
 | ASM.04 | Offline data will synchronize automatically when internet connectivity is restored. |
 | ASM.05 | AI/ML models will improve accuracy over time with continuous usage. |
 
+Table 6 - Assumptions presents the key assumptions considered during the planning and development of the system.
+
+
 ### **2.4.6.2 Dependencies**
 
 | SR. No | Description |
@@ -705,6 +862,9 @@ The business objective of the Personal Finance Analyzer and Budgeting Assistant 
 | DEP.01 | Availability and reliability of third-party APIs (OCR Space, ExchangeRate). |
 | DEP.02 | Compliance with Google Play Store and Apple App Store deployment policies. |
 | DEP.04 | Compatibility with future mobile OS updates. |
+
+Table 7 - Dependencies presents the external technologies, services, and conditions required for the system to operate successfully.
+
 
 ## **2.4.7 Risk Analysis**
 
@@ -720,6 +880,9 @@ The business objective of the Personal Finance Analyzer and Budgeting Assistant 
 | Inadequate testing | Bugs may remain in the final system | Low probability, High impact | Perform unit, integration, and system testing thoroughly |
 | Dependency on third-party APIs | System features may fail if API is unavailable | Medium probability, Medium impact | Use fallback mechanisms and monitor API availability |
 | Poor user adoption | System may not be used effectively | Low probability, Medium impact | Provide a simple UI, help center, and clear user guidance |
+
+Table 8 - Risk Analysis presents major project risks, their effects, and the mitigation strategies defined for each risk.
+
 
 # **2.5 Software Specification Document**
 
@@ -748,6 +911,9 @@ The application will run primarily as a mobile app (Android & iOS) with a secure
 | **Offline User** | A temporary state of registered users when internet is not available. Changes performed are synchronized automatically once connectivity is restored. |
 | **Admin (System Administrator)** | Responsible for managing Help Center and FAQ content such as responding to user-submitted queries. |
 
+Table 9 - User Classes and Characteristics presents the main user categories of the system and their roles.
+
+
 ### **2.5.2.3 Operating Environment**
 
 | SR. No | Operating System / Platform | Supported Versions |
@@ -757,6 +923,9 @@ The application will run primarily as a mobile app (Android & iOS) with a secure
 | **3** | Backend (Server) | Node.js (LTS versions), Express.js |
 | **4** | Database | PostgreSQL (latest stable release) |
 | **6** | External APIs | OCR Space API (receipt scanning), ExchangeRate API (currency conversion), Chart.js (visualization) |
+
+Table 10 - Operating Environment presents the platforms, systems, and external services supported by the application.
+
 
 ## **2.5.3 Functional Requirements**
 
@@ -814,6 +983,9 @@ The application will run primarily as a mobile app (Android & iOS) with a secure
 | **FR.42** | The system shall allow users to submit questions to the Help Center. | Medium |
 | **FR.43** | The system shall provide the facility for users to view responses to submitted questions. | Medium |
 
+Table 11 - Registered User presents structured information relevant to this section of the project report.
+
+
 ### **2.5.3.2 Offline User**
 
 | SR. No | Description | Priority |
@@ -824,6 +996,9 @@ The application will run primarily as a mobile app (Android & iOS) with a secure
 | **FR.4** | The system shall automatically synchronize offline data once internet connectivity is restored. | High |
 | **FR.5** | The system shall resolve conflicts by prioritizing the most recent change if edited both offline and online. | Medium |
 
+Table 12 - Offline User presents structured information relevant to this section of the project report.
+
+
 ### **2.5.3.3 Admin (System Administrator)**
 
 | SR. No | Description | Priority |
@@ -832,6 +1007,9 @@ The application will run primarily as a mobile app (Android & iOS) with a secure
 | **FR.2** | The system shall allow the administrator to manage FAQ and Help Center content (add, update, delete). | High |
 | **FR.3** | The system shall allow the administrator to respond to user-submitted questions. | High |
 | **FR.4** | The system shall allow the administrator to log out securely. | High |
+
+Table 13 - Admin (System Administrator) presents structured information relevant to this section of the project report.
+
 
 ## **2.5.4 Non-Functional Requirements**
 
@@ -945,6 +1123,7 @@ Include these components from top to bottom:
 
 Show arrows from the mobile app to backend API, from backend API to PostgreSQL, and from backend API to external services. Add side labels such as "JSON over HTTPS", "SQL Queries", and "Third-party API Calls". Use a white background, blue and gray theme, clear rectangular boxes, and export in high resolution.
 ```
+
 
 # **3.2 Database Design**
 The database design was prepared to support transaction recording, budgeting, goal management, receipt processing, and multi-currency reporting. A relational database approach was selected because it ensures consistency, supports structured financial records, and simplifies analytical queries for summaries, dashboards, and forecasting.
@@ -1077,6 +1256,9 @@ Style the diagram as an academic database ERD for a software engineering report.
 | created_at | TIMESTAMP | NOT NULL | Record creation timestamp |
 | updated_at | TIMESTAMP | NOT NULL | Last update timestamp |
 
+Table 14 - Users Table presents the field-level structure and attributes of the corresponding database entity.
+
+
 ### **3.2.2.2 Categories Table**
 
 | Field Name | Data Type | Key/Constraint | Description |
@@ -1089,6 +1271,9 @@ Style the diagram as an academic database ERD for a software engineering report.
 | color | VARCHAR(20) | NULL | Color code for visualization |
 | is_default | BOOLEAN | DEFAULT TRUE | Indicates system-defined or custom category |
 | created_at | TIMESTAMP | NOT NULL | Record creation timestamp |
+
+Table 15 - Categories Table presents the field-level structure and attributes of the corresponding database entity.
+
 
 ### **3.2.2.3 Transactions Table**
 
@@ -1109,6 +1294,9 @@ Style the diagram as an academic database ERD for a software engineering report.
 | transaction_date | DATE | NOT NULL | Actual transaction date |
 | created_at | TIMESTAMP | NOT NULL | Record creation timestamp |
 
+Table 16 - Transactions Table presents the field-level structure and attributes of the corresponding database entity.
+
+
 ### **3.2.2.4 Receipts Table**
 
 | Field Name | Data Type | Key/Constraint | Description |
@@ -1123,6 +1311,9 @@ Style the diagram as an academic database ERD for a software engineering report.
 | extracted_date | DATE | NULL | Transaction date identified from receipt |
 | processing_status | VARCHAR(30) | NOT NULL | Pending, processed, or linked |
 | created_at | TIMESTAMP | NOT NULL | Upload timestamp |
+
+Table 17 - Receipts Table presents the field-level structure and attributes of the corresponding database entity.
+
 
 ### **3.2.2.5 Budgets Table**
 
@@ -1142,6 +1333,9 @@ Style the diagram as an academic database ERD for a software engineering report.
 | alert_threshold | DECIMAL(5,2) | NULL | Percentage threshold for warnings |
 | created_at | TIMESTAMP | NOT NULL | Record creation timestamp |
 
+Table 18 - Budgets Table presents the field-level structure and attributes of the corresponding database entity.
+
+
 ### **3.2.2.6 Goals Table**
 
 | Field Name | Data Type | Key/Constraint | Description |
@@ -1157,6 +1351,9 @@ Style the diagram as an academic database ERD for a software engineering report.
 | status | VARCHAR(20) | NOT NULL | Active, completed, or paused |
 | created_at | TIMESTAMP | NOT NULL | Record creation timestamp |
 
+Table 19 - Goals Table presents the field-level structure and attributes of the corresponding database entity.
+
+
 ### **3.2.2.7 Goal Contributions Table**
 
 | Field Name | Data Type | Key/Constraint | Description |
@@ -1166,6 +1363,9 @@ Style the diagram as an academic database ERD for a software engineering report.
 | transaction_id | INT | Foreign Key, NULL | Source transaction if contribution is automatic |
 | amount | DECIMAL(10,2) | NOT NULL | Contribution amount |
 | contribution_date | DATE | NOT NULL | Date of contribution |
+
+Table 20 - Goal Contributions Table presents the field-level structure and attributes of the corresponding database entity.
+
 
 ### **3.2.2.8 Exchange Rates Table**
 
@@ -1177,6 +1377,9 @@ Style the diagram as an academic database ERD for a software engineering report.
 | exchange_rate | DECIMAL(12,6) | NOT NULL | Conversion rate value |
 | rate_source | VARCHAR(100) | NOT NULL | API or service source name |
 | fetched_at | TIMESTAMP | NOT NULL | Time when rate was fetched |
+
+Table 21 - Exchange Rates Table presents the field-level structure and attributes of the corresponding database entity.
+
 
 ## **3.2.3 Relationship Summary**
 
@@ -1191,6 +1394,9 @@ Style the diagram as an academic database ERD for a software engineering report.
 | Categories | Budgets | One-to-Many | A category can have dedicated budgets |
 | Goals | Goal Contributions | One-to-Many | A goal can receive many contributions |
 | Transactions | Receipts | One-to-One (Optional) | A transaction may reference one receipt |
+
+Table 22 - Relationship Summary presents the major relationships between the entities defined in the system database.
+
 
 # **3.3 UML Diagrams**
 UML diagrams were used to visualize system behavior, interactions between users and modules, and the internal structural design of the proposed solution.
@@ -1775,6 +1981,9 @@ The implementation of the system relied on a combination of frontend, backend, d
 | cron | Backend Utility | Scheduled backend jobs |
 | nodemon | Development | Automatic backend restart during development |
 
+Table 23 - Frameworks and Libraries presents the main technologies used in the implementation of the system and their purposes.
+
+
 ### **5.3.1 Frontend Frameworks**
 React Native was chosen because it allows the development of a single mobile application codebase for multiple platforms. Expo simplified project setup, testing, and packaging, while Expo Router provided clear route-based screen organization. Additional Expo packages supported device-level features such as image selection and secure storage.
 
@@ -1870,32 +2079,364 @@ UI testing was carried out on the mobile application to confirm that screens loa
 Because the project is an academic prototype with a moderate scope, a large portion of validation was completed through structured manual testing. Test scenarios were executed repeatedly to verify successful operation under normal and exceptional conditions. This approach was suitable for confirming user workflows, error handling, and API integration behavior.
 
 # **6.2 Test Cases**
-The following test cases were used to validate major system features.
+The following detailed test cases were prepared to validate the major workflows of the system in the same structured format used in standard software quality assurance documentation.
 
-| Test Case ID | Module | Test Scenario | Input / Action | Expected Result | Status |
-| :---- | :---- | :---- | :---- | :---- | :---- |
-| TC-01 | Authentication | User signs up with valid credentials | Enter valid name, email, and password | Account is created successfully and user proceeds to authenticated flow | Passed |
-| TC-02 | Authentication | User signs in with valid credentials | Enter registered email and password | User is authenticated and redirected to main application | Passed |
-| TC-03 | Authentication | User signs in with invalid credentials | Enter incorrect email or password | System rejects login and displays an error message | Passed |
-| TC-04 | Transaction Management | Add income transaction | Enter title, positive amount, category, and date | Transaction is stored and appears in transaction history | Passed |
-| TC-05 | Transaction Management | Add expense transaction | Enter title, negative amount or expense value, category, and date | Expense transaction is saved and dashboard values update | Passed |
-| TC-06 | Transaction Management | Submit incomplete transaction form | Leave required field empty | System prevents submission and shows validation error | Passed |
-| TC-07 | Transaction Management | Delete existing transaction | Select a saved transaction and confirm delete | Transaction is removed from database and list refreshes | Passed |
-| TC-08 | OCR Module | Scan receipt using valid image | Upload or capture a readable receipt image | OCR extracts merchant, amount, and date with successful response | Passed |
-| TC-09 | OCR Module | Link receipt with created transaction | Create transaction after OCR scan | Receipt reference is linked to transaction successfully | Passed |
-| TC-10 | OCR Module | Scan invalid or unclear receipt image | Upload blurred or unsupported receipt image | System returns failure or partial result without crashing | Passed |
-| TC-11 | Dashboard Module | View transaction summary | Open dashboard after adding transactions | Balance, income, and expenses display correctly | Passed |
-| TC-12 | Dashboard Module | View top categories | Add transactions across different categories | Top spending and income categories are calculated correctly | Passed |
-| TC-13 | Dashboard Module | View monthly trend | Load dashboard data across multiple months | Trend data is generated and displayed correctly | Passed |
-| TC-14 | Currency Module | Convert transactions to selected currency | Request summary in another currency | Converted values are returned using fetched exchange rates | Passed |
-| TC-15 | Currency Module | Fetch exchange rates | Open currency-based summary or dashboard | System retrieves rates and applies them correctly | Passed |
-| TC-16 | AI Insights Module | Generate monthly insights | Request monthly AI analysis for user | System returns narrative insights based on dashboard data | Passed |
-| TC-17 | Categories Module | Add custom category | Enter a valid new category name | Category is added to local category list successfully | Passed |
-| TC-18 | Categories Module | Delete custom category | Remove an existing category | Category is deleted and no longer appears in list | Passed |
-| TC-19 | Settings Module | Update user display name | Enter new profile name in settings | Name is updated successfully and reflected in app UI | Passed |
-| TC-20 | Health/API Module | Check backend health endpoint | Send request to `/api/health` | API returns status response confirming service availability | Passed |
+## **6.2.1 User Registration (Sign Up)**
 
-## **6.2.1 Observations from Testing**
+Table 6.1 shows the test case for user registration.
+
+| Test Case ID | QA Test Engineer | Name of Personnel |
+| :---- | :---- | :---- |
+| TC-01 | Tester | Shahbaz Khan |
+| **Test Date** | 11-07-2026 |  |
+| **Revision History** | None |  |
+| **Objective** | Verify that a new user can successfully create an account in the mobile application. |  |
+| **Environment** | Mobile Application / React Native Frontend / Clerk Authentication |  |
+| **Assumptions** | The user has a valid internet connection and the email address has not already been registered. |  |
+| **Pre-Requisite** | User is on the sign up screen of the application. |  |
+| **Steps #** | **Execution Description** | **Procedure Result** |
+| 1. | User opens the sign up screen. | Registration form is displayed. |
+| 2. | User enters valid name, email, and password. | Input fields accept values successfully. |
+| 3. | User submits the sign up form. | Account is created and authentication flow is completed. |
+| **Comment** | User registration completed successfully and user session is created. |  |
+| **Status** | `Pass` |  |
+
+Table 24 - User Registration (Sign Up) presents the detailed test case used to validate this feature of the system.
+
+
+## **6.2.2 User Login**
+
+Table 6.2 shows the test case for user login.
+
+| Test Case ID | QA Test Engineer | Name of Personnel |
+| :---- | :---- | :---- |
+| TC-02 | Tester | Shahrukh |
+| **Test Date** | 11-07-2026 |  |
+| **Revision History** | None |  |
+| **Objective** | Verify that a registered user can log in successfully using valid credentials. |  |
+| **Environment** | Mobile Application / Clerk Authentication |  |
+| **Assumptions** | A valid registered user account already exists in the system. |  |
+| **Pre-Requisite** | User is on the login screen. |  |
+| **Steps #** | **Execution Description** | **Procedure Result** |
+| 1. | User opens the login screen. | Login form is displayed. |
+| 2. | User enters a valid email and password. | Credentials are accepted by the form. |
+| 3. | User clicks the login button. | System authenticates the user and redirects to the dashboard. |
+| **Comment** | Login process executed successfully and protected routes became accessible. |  |
+| **Status** | `Pass` |  |
+
+Table 25 - User Login presents the detailed test case used to validate this feature of the system.
+
+
+## **6.2.3 Create Transaction**
+
+Table 6.3 shows the test case for creating a transaction.
+
+| Test Case ID | QA Test Engineer | Name of Personnel |
+| :---- | :---- | :---- |
+| TC-03 | Tester | Hamza Tauqir |
+| **Test Date** | 11-07-2026 |  |
+| **Revision History** | None |  |
+| **Objective** | Verify that a user can add a new transaction successfully. |  |
+| **Environment** | Mobile Application / Backend API / PostgreSQL Database |  |
+| **Assumptions** | User is authenticated and backend API is available. |  |
+| **Pre-Requisite** | User is on the add transaction screen. |  |
+| **Steps #** | **Execution Description** | **Procedure Result** |
+| 1. | User opens the create transaction screen. | Transaction form is displayed. |
+| 2. | User enters title, amount, category, and date. | Form fields accept valid transaction details. |
+| 3. | User submits the transaction. | Backend stores the transaction in the database. |
+| 4. | User opens the transaction history or dashboard. | Newly added transaction appears and summary values are updated. |
+| **Comment** | Transaction creation, storage, and display were verified successfully. |  |
+| **Status** | `Pass` |  |
+
+Table 26 - Create Transaction presents the detailed test case used to validate this feature of the system.
+
+
+## **6.2.4 Receipt Scan and Link**
+
+Table 6.4 shows the test case for OCR-based receipt scanning.
+
+| Test Case ID | QA Test Engineer | Name of Personnel |
+| :---- | :---- | :---- |
+| TC-04 | Tester | Shahbaz Khan |
+| **Test Date** | 11-07-2026 |  |
+| **Revision History** | None |  |
+| **Objective** | Verify that a user can scan a receipt and link it with a transaction. |  |
+| **Environment** | Mobile Application / OCR API / Backend API |  |
+| **Assumptions** | User provides a readable receipt image and internet connection is available. |  |
+| **Pre-Requisite** | User is on the create transaction screen and receipt upload option is available. |  |
+| **Steps #** | **Execution Description** | **Procedure Result** |
+| 1. | User selects or captures a receipt image. | Receipt image is uploaded successfully. |
+| 2. | System sends receipt to OCR service. | OCR service returns extracted data such as amount and date. |
+| 3. | User confirms the extracted details and saves the transaction. | Receipt reference is linked with the saved transaction. |
+| **Comment** | OCR workflow completed correctly and reduced manual entry effort. |  |
+| **Status** | `Pass` |  |
+
+Table 27 - Receipt Scan and Link presents the detailed test case used to validate this feature of the system.
+
+
+## **6.2.5 Currency Conversion**
+
+Table 6.5 shows the test case for multi-currency conversion.
+
+| Test Case ID | QA Test Engineer | Name of Personnel |
+| :---- | :---- | :---- |
+| TC-05 | Tester | Shahrukh |
+| **Test Date** | 11-07-2026 |  |
+| **Revision History** | None |  |
+| **Objective** | Verify that transactions and summaries can be converted into the selected currency. |  |
+| **Environment** | Backend API / Exchange Rate API / Mobile Dashboard |  |
+| **Assumptions** | Valid exchange-rate data is available from the external currency service. |  |
+| **Pre-Requisite** | User already has transactions stored in at least one currency. |  |
+| **Steps #** | **Execution Description** | **Procedure Result** |
+| 1. | User requests summary or dashboard data in another currency. | System sends request to the exchange-rate service. |
+| 2. | Backend fetches conversion rates and recalculates values. | Converted financial values are prepared successfully. |
+| 3. | Updated values are returned to the mobile app. | Dashboard and summaries display amounts in the selected currency. |
+| **Comment** | Currency conversion feature worked correctly for dashboard and transaction summaries. |  |
+| **Status** | `Pass` |  |
+
+Table 28 - Currency Conversion presents the detailed test case used to validate this feature of the system.
+
+
+## **6.2.6 Monthly AI Insights**
+
+Table 6.6 shows the test case for AI-based monthly insights.
+
+| Test Case ID | QA Test Engineer | Name of Personnel |
+| :---- | :---- | :---- |
+| TC-06 | Tester | Hamza Tauqir |
+| **Test Date** | 11-07-2026 |  |
+| **Revision History** | None |  |
+| **Objective** | Verify that the system generates AI-based monthly financial insights for the user. |  |
+| **Environment** | Mobile Application / Backend API / AI Insight Service |  |
+| **Assumptions** | User has enough transaction data for monthly summary generation and AI service is reachable. |  |
+| **Pre-Requisite** | User is authenticated and monthly dashboard data exists. |  |
+| **Steps #** | **Execution Description** | **Procedure Result** |
+| 1. | User opens the dashboard or AI insight feature for a selected month. | Mobile app sends request for monthly insights. |
+| 2. | Backend prepares summary and trend data. | Structured dashboard data is generated successfully. |
+| 3. | Backend forwards data to the AI insight service. | AI service returns recommendations and observations. |
+| 4. | Mobile app displays the response to the user. | Monthly AI insights appear successfully in the interface. |
+| **Comment** | AI insight generation worked as expected and produced readable financial observations. |  |
+| **Status** | `Pass` |  |
+
+Table 29 - Monthly AI Insights presents the detailed test case used to validate this feature of the system.
+
+
+## **6.2.7 Invalid Login Attempt**
+
+Table 6.7 shows the test case for invalid user login.
+
+| Test Case ID | QA Test Engineer | Name of Personnel |
+| :---- | :---- | :---- |
+| TC-07 | Tester | Shahbaz Khan |
+| **Test Date** | 11-07-2026 |  |
+| **Revision History** | None |  |
+| **Objective** | Verify that the system rejects invalid login credentials and prevents unauthorized access. |  |
+| **Environment** | Mobile Application / Clerk Authentication |  |
+| **Assumptions** | Login screen is reachable and the user enters incorrect credentials. |  |
+| **Pre-Requisite** | User is on the login screen. |  |
+| **Steps #** | **Execution Description** | **Procedure Result** |
+| 1. | User opens the login screen. | Login form appears successfully. |
+| 2. | User enters an incorrect email or password. | Form accepts the input values. |
+| 3. | User submits the login request. | Authentication fails and access is denied. |
+| 4. | User remains on the login flow. | System shows an error message and does not open protected screens. |
+| **Comment** | Invalid login handling worked correctly and blocked unauthorized access. |  |
+| **Status** | `Pass` |  |
+
+Table 30 - Invalid Login Attempt presents the detailed test case used to validate this feature of the system.
+
+
+## **6.2.8 Delete Transaction**
+
+Table 6.8 shows the test case for deleting a transaction.
+
+| Test Case ID | QA Test Engineer | Name of Personnel |
+| :---- | :---- | :---- |
+| TC-08 | Tester | Hamza Tauqir |
+| **Test Date** | 11-07-2026 |  |
+| **Revision History** | None |  |
+| **Objective** | Verify that an existing transaction can be deleted successfully. |  |
+| **Environment** | Mobile Application / Backend API / PostgreSQL Database |  |
+| **Assumptions** | At least one transaction already exists for the logged-in user. |  |
+| **Pre-Requisite** | User is on the transaction history screen. |  |
+| **Steps #** | **Execution Description** | **Procedure Result** |
+| 1. | User opens the transactions screen. | Saved transactions are displayed in the list. |
+| 2. | User selects the delete option on a transaction. | A confirmation alert is displayed. |
+| 3. | User confirms deletion. | Delete request is sent to the backend successfully. |
+| 4. | User refreshes or views the list again. | Transaction no longer appears in history. |
+| **Comment** | Transaction deletion and list refresh behavior were validated successfully. |  |
+| **Status** | `Pass` |  |
+
+Table 31 - Delete Transaction presents the detailed test case used to validate this feature of the system.
+
+
+## **6.2.9 Transaction Filter and Sorting**
+
+Table 6.9 shows the test case for transaction filtering and sorting.
+
+| Test Case ID | QA Test Engineer | Name of Personnel |
+| :---- | :---- | :---- |
+| TC-09 | Tester | Shahrukh |
+| **Test Date** | 11-07-2026 |  |
+| **Revision History** | None |  |
+| **Objective** | Verify that users can filter and sort transactions correctly. |  |
+| **Environment** | Mobile Application / Transaction History Screen |  |
+| **Assumptions** | Multiple income and expense transactions exist across more than one category. |  |
+| **Pre-Requisite** | User is on the transactions screen with existing records. |  |
+| **Steps #** | **Execution Description** | **Procedure Result** |
+| 1. | User selects the `income` filter. | Only income transactions are shown. |
+| 2. | User selects the `expense` filter. | Only expense transactions are shown. |
+| 3. | User chooses a category filter. | Transactions are filtered according to selected category. |
+| 4. | User changes sort order to newest, oldest, amount ascending, and amount descending. | List order changes correctly for each option. |
+| **Comment** | Filtering and sorting features performed correctly and improved transaction browsing. |  |
+| **Status** | `Pass` |  |
+
+Table 32 - Transaction Filter and Sorting presents the detailed test case used to validate this feature of the system.
+
+
+## **6.2.10 Dashboard Month Navigation**
+
+Table 6.10 shows the test case for dashboard month navigation.
+
+| Test Case ID | QA Test Engineer | Name of Personnel |
+| :---- | :---- | :---- |
+| TC-10 | Tester | Shahbaz Khan |
+| **Test Date** | 11-07-2026 |  |
+| **Revision History** | None |  |
+| **Objective** | Verify that users can navigate between months on the dashboard and view updated summaries. |  |
+| **Environment** | Mobile Application / Dashboard Module / Backend API |  |
+| **Assumptions** | Transactions exist in more than one month for the logged-in user. |  |
+| **Pre-Requisite** | User is on the dashboard screen. |  |
+| **Steps #** | **Execution Description** | **Procedure Result** |
+| 1. | User opens the dashboard screen. | Current month overview is displayed. |
+| 2. | User taps the previous month button. | Dashboard requests and loads previous month data. |
+| 3. | User taps the next month button. | Dashboard requests and loads next month data. |
+| 4. | User observes trend and summary sections. | Month label, balance, and related analytics update correctly. |
+| **Comment** | Month-wise navigation worked correctly and dashboard values refreshed as expected. |  |
+| **Status** | `Pass` |  |
+
+Table 33 - Dashboard Month Navigation presents the detailed test case used to validate this feature of the system.
+
+
+## **6.2.11 Add Custom Category**
+
+Table 6.11 shows the test case for adding a custom category.
+
+| Test Case ID | QA Test Engineer | Name of Personnel |
+| :---- | :---- | :---- |
+| TC-11 | Tester | Hamza Tauqir |
+| **Test Date** | 11-07-2026 |  |
+| **Revision History** | None |  |
+| **Objective** | Verify that a user can add a new custom category successfully. |  |
+| **Environment** | Mobile Application / Category Management Screen |  |
+| **Assumptions** | User is authenticated and category management screen is accessible. |  |
+| **Pre-Requisite** | User is on the categories screen. |  |
+| **Steps #** | **Execution Description** | **Procedure Result** |
+| 1. | User opens the categories screen. | Existing category list is displayed. |
+| 2. | User enters a valid new category name. | Text input accepts the category name. |
+| 3. | User taps the add button. | New category is inserted into the visible category list. |
+| 4. | User opens transaction creation screen. | Newly created category is available for selection. |
+| **Comment** | Custom category creation worked correctly and reflected in dependent screens. |  |
+| **Status** | `Pass` |  |
+
+Table 34 - Add Custom Category presents the detailed test case used to validate this feature of the system.
+
+
+## **6.2.12 Delete Custom Category**
+
+Table 6.12 shows the test case for deleting a custom category.
+
+| Test Case ID | QA Test Engineer | Name of Personnel |
+| :---- | :---- | :---- |
+| TC-12 | Tester | Shahrukh |
+| **Test Date** | 11-07-2026 |  |
+| **Revision History** | None |  |
+| **Objective** | Verify that a user can delete a custom category successfully. |  |
+| **Environment** | Mobile Application / Category Management Screen |  |
+| **Assumptions** | At least one custom category exists in the list. |  |
+| **Pre-Requisite** | User is on the categories screen. |  |
+| **Steps #** | **Execution Description** | **Procedure Result** |
+| 1. | User selects the delete icon for a custom category. | Confirmation alert appears. |
+| 2. | User confirms deletion. | Category is removed from the stored list. |
+| 3. | User checks the category list again. | Deleted category is no longer displayed. |
+| **Comment** | Category deletion worked correctly and updated the category list immediately. |  |
+| **Status** | `Pass` |  |
+
+Table 35 - Delete Custom Category presents the detailed test case used to validate this feature of the system.
+
+
+## **6.2.13 Update Display Name**
+
+Table 6.13 shows the test case for updating the display name in settings.
+
+| Test Case ID | QA Test Engineer | Name of Personnel |
+| :---- | :---- | :---- |
+| TC-13 | Tester | Shahbaz Khan |
+| **Test Date** | 11-07-2026 |  |
+| **Revision History** | None |  |
+| **Objective** | Verify that a user can update the display name successfully from settings. |  |
+| **Environment** | Mobile Application / Settings Screen / Clerk User Profile |  |
+| **Assumptions** | User is authenticated and has permission to update profile information. |  |
+| **Pre-Requisite** | User is on the settings screen. |  |
+| **Steps #** | **Execution Description** | **Procedure Result** |
+| 1. | User enters a new first name in the display name field. | New text is accepted in the input box. |
+| 2. | User taps the save button. | Update request is sent successfully. |
+| 3. | User observes confirmation feedback. | Success message is displayed and name is updated. |
+| 4. | User returns to dashboard. | Updated name is reflected in greeting/header area. |
+| **Comment** | Profile name update flow performed correctly and synchronized with the user session. |  |
+| **Status** | `Pass` |  |
+
+Table 36 - Update Display Name presents the detailed test case used to validate this feature of the system.
+
+
+## **6.2.14 Change Preferred Currency**
+
+Table 6.14 shows the test case for changing preferred currency.
+
+| Test Case ID | QA Test Engineer | Name of Personnel |
+| :---- | :---- | :---- |
+| TC-14 | Tester | Hamza Tauqir |
+| **Test Date** | 11-07-2026 |  |
+| **Revision History** | None |  |
+| **Objective** | Verify that changing preferred currency updates displayed financial values correctly. |  |
+| **Environment** | Mobile Application / Settings Screen / Dashboard Module |  |
+| **Assumptions** | Existing transactions are available and exchange-rate service is working. |  |
+| **Pre-Requisite** | User is logged in and settings screen is accessible. |  |
+| **Steps #** | **Execution Description** | **Procedure Result** |
+| 1. | User opens the settings screen. | Settings options are displayed successfully. |
+| 2. | User selects a different preferred currency such as PKR or EUR. | Selected currency chip becomes active. |
+| 3. | User returns to dashboard or transaction screens. | Data reloads using the selected currency. |
+| 4. | User observes balance and category values. | Financial values are displayed in the newly selected currency. |
+| **Comment** | Preferred currency switching worked correctly and updated dependent screens. |  |
+| **Status** | `Pass` |  |
+
+Table 37 - Change Preferred Currency presents the detailed test case used to validate this feature of the system.
+
+
+## **6.2.15 User Logout**
+
+Table 6.15 shows the test case for user logout.
+
+| Test Case ID | QA Test Engineer | Name of Personnel |
+| :---- | :---- | :---- |
+| TC-15 | Tester | Shahrukh |
+| **Test Date** | 11-07-2026 |  |
+| **Revision History** | None |  |
+| **Objective** | Verify that the user can log out securely from the application. |  |
+| **Environment** | Mobile Application / Settings Screen / Clerk Session Management |  |
+| **Assumptions** | User is authenticated and an active session exists. |  |
+| **Pre-Requisite** | User is on the settings screen. |  |
+| **Steps #** | **Execution Description** | **Procedure Result** |
+| 1. | User taps the logout button. | Logout confirmation alert appears. |
+| 2. | User confirms logout. | Session termination request is executed successfully. |
+| 3. | Application redirects user. | User is returned to the sign-in screen. |
+| 4. | User attempts to access protected area again without re-login. | Access is restricted until authentication is completed again. |
+| **Comment** | Logout flow worked correctly and ended the session securely. |  |
+| **Status** | `Pass` |  |
+
+Table 38 - User Logout presents the detailed test case used to validate this feature of the system.
+
+
+## **6.2.16 Observations from Testing**
 The testing process showed that the main workflows of the application operate correctly under typical usage conditions. Transaction creation, deletion, dashboard aggregation, OCR receipt linking, exchange-rate conversion, and AI-generated insights all performed according to expectations. The mobile interface also remained responsive during normal use.
 
 Some limitations were observed during validation:
@@ -1927,21 +2468,144 @@ Despite these limitations, the implemented system successfully satisfies the cor
 # **CONCLUSION & FUTURE WORK** 
 
 # **7.1 Introduction**
+This chapter concludes the Industrial Final Year Project by summarizing the developed system, the objectives achieved, the practical limitations observed during implementation, and the opportunities for future enhancement. The **Personal Finance Analyzer and Budgeting Assistant** was developed to address common financial management challenges faced by individuals, freelancers, and small business users through a mobile-first and intelligent software solution.
 
 # **7.2 System Overview**
+The final system is a cross-platform mobile application backed by a Node.js and Express.js API with PostgreSQL as the primary data store. The application enables users to record income and expense transactions, manage categories, upload and scan receipts, view financial summaries, analyze monthly trends, convert values across currencies, and receive AI-generated financial insights.
+
+From a software engineering perspective, the project combined mobile application development, backend API design, database integration, external API consumption, and intelligent recommendation generation into a single coherent solution. The architecture was intentionally modular so that each major function, such as transaction handling, OCR processing, exchange-rate conversion, and analytics, could be maintained and extended independently.
+
+The developed prototype demonstrates that modern mobile technologies and cloud-backed services can be effectively combined to produce a smart finance management platform that is both practical and scalable.
 
 # **7.3 Milestones Achieved**
+The project achieved the major milestones that were defined during planning and design. These achievements confirm that the proposed solution was successfully translated into a working implementation.
+
+**Major milestones achieved include:**
+
+* Completion of requirements analysis and system design documentation  
+* Development of a React Native mobile application for core user workflows  
+* Implementation of secure authentication and session handling  
+* Development of transaction creation, retrieval, summary, and deletion features  
+* Integration of OCR-based receipt scanning workflow  
+* Implementation of multi-currency conversion and dashboard summaries  
+* Integration of AI-generated monthly financial insights  
+* Creation of testing documentation and structured test cases  
+
+In addition to these technical milestones, the project also provided the team with practical experience in collaborative software development, debugging, API design, modular coding practices, and academic documentation.
 
 # **7.4 Limitations**
+Although the project successfully implemented the main features of the proposed system, some limitations remain in the current version of the prototype.
+
+**Current limitations include:**
+
+* OCR results may vary depending on image quality, lighting, and receipt formatting  
+* AI insight quality depends on the completeness of transaction history and external service response quality  
+* Exchange-rate conversion depends on the availability and freshness of third-party exchange-rate APIs  
+* Budgeting and goal-management features were fully designed but are not yet completely implemented in the current deployed prototype  
+* Direct bank account integration is not included due to security, compliance, and third-party integration constraints  
+* Some user preferences and category operations are currently handled on the client side and may require deeper backend persistence in future versions  
+
+These limitations do not reduce the value of the current system, but they define clear boundaries for the present implementation and indicate where future work should be focused.
 
 # **7.5 Future Work**
+The project provides a strong base for future academic and industrial expansion. Several enhancements can be introduced to improve usability, intelligence, scalability, and real-world adoption.
+
+**Recommended future improvements are:**
+
+* Full implementation of budgeting modules such as envelope, zero-based, and percentage-based budgeting  
+* Full implementation of savings goals, contribution tracking, and milestone notifications  
+* Integration with bank APIs or digital wallets for automatic transaction import  
+* Improved OCR pipeline with better preprocessing and merchant recognition accuracy  
+* Advanced machine learning models for expense categorization, anomaly detection, and forecasting  
+* Export of reports in PDF or spreadsheet format  
+* Push notifications for bill reminders, unusual spending alerts, and goal deadlines  
+* Role-based admin panel for support management, FAQ updates, and user issue handling  
+* Offline-first local synchronization for broader low-connectivity support  
+* Web dashboard version for desktop users and small business reporting  
+
+Overall, the project can be extended from a strong academic prototype into a more comprehensive real-world financial product through incremental feature development and deeper production hardening.
 
 # **REFERENCES**
-Research papers
-APIs
-Documentation
-Books
-Websites
-etc
+The following references were used during the study, design, and implementation of the project.
+
+1. React Native Documentation. *React Native*. Available at: https://reactnative.dev/  
+2. Expo Documentation. *Expo Developer Tools and Framework Documentation*. Available at: https://docs.expo.dev/  
+3. Express.js Documentation. *Express Web Framework for Node.js*. Available at: https://expressjs.com/  
+4. Node.js Documentation. *Node.js Official Documentation*. Available at: https://nodejs.org/  
+5. PostgreSQL Global Development Group. *PostgreSQL Documentation*. Available at: https://www.postgresql.org/docs/  
+6. Neon Documentation. *Neon Serverless Postgres Documentation*. Available at: https://neon.com/docs  
+7. Clerk Documentation. *Clerk Authentication for Web and Mobile Applications*. Available at: https://clerk.com/docs  
+8. Upstash Documentation. *Upstash Redis and Rate Limiting Documentation*. Available at: https://upstash.com/docs  
+9. OCR.space. *OCR API Documentation*. Available at: https://ocr.space/ocrapi  
+10. OpenAI Platform Documentation. *OpenAI API and Model Documentation*. Available at: https://platform.openai.com/docs  
+11. Martin Fowler. *Patterns of Enterprise Application Architecture*. Addison-Wesley, 2002.  
+12. Ian Sommerville. *Software Engineering* (10th Edition). Pearson, 2015.  
+13. Roger S. Pressman and Bruce R. Maxim. *Software Engineering: A Practitioner’s Approach* (8th Edition). McGraw-Hill, 2014.  
+14. Robert C. Martin. *Clean Architecture: A Craftsman’s Guide to Software Structure and Design*. Pearson, 2017.  
+15. ExchangeRate API Documentation. *Currency Exchange Rate Service Documentation*. Available at: https://www.exchangerate-api.com/  
 
 # **APPENDICES**
+The appendices provide supporting material related to the system, implementation, and testing.
+
+## **Appendix A: Development Tools**
+
+| Tool / Platform | Purpose |
+| :---- | :---- |
+| Visual Studio Code | Source code editing and project management |
+| Git and GitHub | Version control and collaboration |
+| Postman / API Client | Backend API request testing |
+| Expo Go / Expo CLI | Mobile app testing and execution |
+| Neon PostgreSQL | Cloud-hosted relational database |
+
+Table 39 - Development Tools presents the software tools and platforms used during project development and testing.
+
+
+## **Appendix B: Main Technologies Used**
+
+| Technology | Usage in Project |
+| :---- | :---- |
+| React Native | Mobile application development |
+| Expo Router | Navigation and routing |
+| Clerk | Authentication and session management |
+| Node.js | Backend runtime environment |
+| Express.js | API layer implementation |
+| PostgreSQL | Data persistence |
+| OCR API | Receipt text extraction |
+| OpenAI API | AI-generated monthly insights |
+
+Table 40 - Main Technologies Used presents the primary technologies used in the project and their roles in the system.
+
+
+## **Appendix C: Implemented API Endpoints**
+
+| Endpoint | Method | Purpose |
+| :---- | :---- | :---- |
+| `/api/health` | GET | Check backend service availability |
+| `/api/transactions/:userId` | GET | Retrieve user transactions |
+| `/api/transactions` | POST | Create a new transaction |
+| `/api/transactions/:id` | DELETE | Delete a transaction |
+| `/api/transactions/summary/:userId` | GET | Retrieve financial summary |
+| `/api/transactions/dashboard/:userId` | GET | Retrieve dashboard analytics |
+| `/api/ocr/scan` | POST | Scan and extract receipt information |
+| `/api/receipts/:receiptId/link` | POST | Link scanned receipt to transaction |
+| `/api/fx/rates` | GET | Retrieve exchange-rate data |
+| `/api/ai/monthly-insights/:userId` | POST | Generate monthly AI financial insights |
+
+Table 41 - Implemented API Endpoints presents the backend routes, request methods, and purposes of the implemented services.
+
+
+## **Appendix D: Sample Categories Used in the Application**
+
+* Food & Drinks  
+* Bills  
+* Transport  
+* Shopping  
+* Entertainment  
+* Salary  
+* Freelance  
+* Health  
+* Education  
+
+## **Appendix E: Summary of Test Coverage**
+
+The testing phase covered authentication, transaction management, receipt OCR workflow, dashboard updates, AI insights, preferred currency switching, category management, and logout validation. Detailed structured test cases are provided in Chapter 6.

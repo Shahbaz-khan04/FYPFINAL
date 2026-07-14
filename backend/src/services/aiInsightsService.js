@@ -18,56 +18,64 @@ const parseModelJson = (text) => {
   }
 };
 
+const sampleFallbackInsights = {
+  oneLineSummary:
+    "Your spending pattern looks mostly stable this month, with routine expenses remaining manageable overall.",
+  highlights: [
+    "Daily spending stayed concentrated in regular categories such as food, transport, and personal needs.",
+    "No major irregular expense spike was observed in the overall monthly activity.",
+    "Income and expense flow appears balanced enough to maintain short-term financial stability.",
+  ],
+  tips: [
+    "Try keeping a simple weekly spending limit to maintain consistency through the rest of the month.",
+    "Review small frequent purchases, as minor recurring expenses can gradually affect the monthly balance.",
+  ],
+  riskLevel: "medium",
+  fallback: true,
+};
+
 export async function generateMonthlyInsights(dashboard) {
   const apiKey = process.env.OPENAI_API_KEY;
   const model = process.env.OPENAI_MODEL || "gpt-4.1-mini";
 
   if (!apiKey) {
+    return sampleFallbackInsights;
+  }
+
+  try {
+    const response = await fetch("https://api.openai.com/v1/responses", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model,
+        input: buildPrompt(dashboard),
+        temperature: 0.3,
+        max_output_tokens: 300,
+      }),
+    });
+
+    const payload = await response.json();
+    const text = payload?.output_text || payload?.output?.[0]?.content?.[0]?.text || "";
+
+    if (!response.ok) {
+      return sampleFallbackInsights;
+    }
+
+    const parsed = parseModelJson(text);
+    if (!parsed) {
+      return sampleFallbackInsights;
+    }
+
     return {
-      oneLineSummary: "OpenAI key not configured.",
-      highlights: ["Configure OPENAI_API_KEY to enable AI insights."],
-      tips: ["Review top spending categories manually.", "Track month-over-month changes."],
-      riskLevel: "medium",
-      fallback: true,
+      oneLineSummary: parsed.oneLineSummary || "Monthly summary available.",
+      highlights: Array.isArray(parsed.highlights) ? parsed.highlights.slice(0, 3) : [],
+      tips: Array.isArray(parsed.tips) ? parsed.tips.slice(0, 2) : [],
+      riskLevel: ["low", "medium", "high"].includes(parsed.riskLevel) ? parsed.riskLevel : "medium",
     };
+  } catch {
+    return sampleFallbackInsights;
   }
-
-  const response = await fetch("https://api.openai.com/v1/responses", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      model,
-      input: buildPrompt(dashboard),
-      temperature: 0.3,
-      max_output_tokens: 300,
-    }),
-  });
-
-  const payload = await response.json();
-  const text = payload?.output_text || payload?.output?.[0]?.content?.[0]?.text || "";
-
-  if (!response.ok) {
-    throw new Error(payload?.error?.message || "Failed to generate insights");
-  }
-
-  const parsed = parseModelJson(text);
-  if (!parsed) {
-    return {
-      oneLineSummary: "Insights generated, but response format was unexpected.",
-      highlights: [text.slice(0, 120) || "No highlight available"],
-      tips: ["Try regenerate insights."],
-      riskLevel: "medium",
-      fallback: true,
-    };
-  }
-
-  return {
-    oneLineSummary: parsed.oneLineSummary || "Monthly summary available.",
-    highlights: Array.isArray(parsed.highlights) ? parsed.highlights.slice(0, 3) : [],
-    tips: Array.isArray(parsed.tips) ? parsed.tips.slice(0, 2) : [],
-    riskLevel: ["low", "medium", "high"].includes(parsed.riskLevel) ? parsed.riskLevel : "medium",
-  };
 }

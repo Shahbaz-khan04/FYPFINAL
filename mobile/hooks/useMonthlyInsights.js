@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
 import { API_URL } from "../constants/api";
+import { fetchJson } from "../lib/api";
 
 export const useMonthlyInsights = (userId) => {
   const [cache, setCache] = useState({});
@@ -14,14 +15,13 @@ export const useMonthlyInsights = (userId) => {
 
       setIsLoading(true);
       try {
-        const response = await fetch(
+        const data = await fetchJson(
           `${API_URL}/ai/monthly-insights/${userId}?month=${encodeURIComponent(month)}&currency=${encodeURIComponent(currency)}`,
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
           }
         );
-        const data = await response.json();
         const insights = data?.insights || null;
         setCache((prev) => ({ ...prev, [key]: insights }));
         return insights;

@@ -3,6 +3,7 @@
 import { useCallback, useState } from "react";
 import { Alert } from "react-native";
 import { API_URL } from "../constants/api";
+import { fetchJson } from "../lib/api";
 
 // const API_URL = "https://wallet-api-cxqp.onrender.com/api";
 // const API_URL = "http://localhost:5001/api";
@@ -19,10 +20,9 @@ export const useTransactions = (userId, preferredCurrency = "USD") => {
   // useCallback is used for performance reasons, it will memoize the function
   const fetchTransactions = useCallback(async () => {
     try {
-      const response = await fetch(
+      const data = await fetchJson(
         `${API_URL}/transactions/${userId}?currency=${encodeURIComponent(preferredCurrency)}`
       );
-      const data = await response.json();
       setTransactions(data);
     } catch (error) {
       console.error("Error fetching transactions:", error);
@@ -31,10 +31,9 @@ export const useTransactions = (userId, preferredCurrency = "USD") => {
 
   const fetchSummary = useCallback(async () => {
     try {
-      const response = await fetch(
+      const data = await fetchJson(
         `${API_URL}/transactions/summary/${userId}?currency=${encodeURIComponent(preferredCurrency)}`
       );
-      const data = await response.json();
       setSummary(data);
     } catch (error) {
       console.error("Error fetching summary:", error);

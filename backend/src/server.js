@@ -17,6 +17,10 @@ const app = express();
 
 if (process.env.NODE_ENV === "production") job.start();
 
+app.get("/api/health", (req, res) => {
+  res.status(200).json({ status: "ok" });
+});
+
 // middleware
 app.use(
   cors({
@@ -33,10 +37,6 @@ app.use(express.json({ limit: "12mb" }));
 // });
 
 const PORT = process.env.PORT || 5001;
-
-app.get("/api/health", (req, res) => {
-  res.status(200).json({ status: "ok" });
-});
 
 app.use("/api/transactions", transactionsRoute);
 app.use("/api/ocr", ocrRoute);

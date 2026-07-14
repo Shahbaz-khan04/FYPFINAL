@@ -13,7 +13,8 @@ const rateLimiter = async (req, res, next) => {
     next();
   } catch (error) {
     console.log("Rate limit error", error);
-    next(error);
+    // Keep the API available if the external rate-limit service is temporarily down.
+    next();
   }
 };
 

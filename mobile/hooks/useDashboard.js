@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
 import { API_URL } from "../constants/api";
+import { fetchJson } from "../lib/api";
 
 const monthToString = (date) => `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}`;
 
@@ -13,10 +14,9 @@ export const useDashboard = (userId, preferredCurrency) => {
     setIsLoading(true);
     try {
       const month = monthToString(monthDate);
-      const response = await fetch(
+      const data = await fetchJson(
         `${API_URL}/transactions/dashboard/${userId}?month=${encodeURIComponent(month)}&currency=${encodeURIComponent(preferredCurrency)}`
       );
-      const data = await response.json();
       setDashboard(data);
     } catch (error) {
       console.log("Error loading dashboard", error);
